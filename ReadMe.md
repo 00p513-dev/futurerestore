@@ -3,7 +3,7 @@ _futurerestore is a hacked up idevicerestore wrapper, which allows manually spec
 
 __Only use if you are sure what you're doing.__
 ---
-Latest release available [here](https://github.com/s0uthwest/futurerestore/releases) for macOS & Windows. I'll compile only macOS/Windows versions, Linux version won't be compiled by me.
+Latest release available [here](https://github.com/s0uthwest/futurerestore/releases) for GNU+Linux. I'll compile only GNU+Linux versions, macOS/Windows version won't be compiled by me, s0uthwest dows that in his main repo.
 
 ## Features
 * Supports the following downgrade methods:
@@ -36,30 +36,13 @@ __NOT recommended to use '-u' parameter, if you update jailbroken firmware!__
   * [img4tool](https://github.com/s0uthwest/img4tool);
   * [idevicerestore](https://github.com/s0uthwest/idevicerestore)
   
-## Report an issue
-You can do it [here](https://github.com/s0uthwest/futurerestore/issues).
-
-### Restoring on Windows 10
-1.  Try to restore the device, error -8 occurs;
-2.  Leave the device plugged in, it'll stay on the Recovery screen;
-3.  Head over to device manager under control panel in Windows;
-4.  Locate "Apple Recovery (iBoot) USB Composite Device" (at the bottom);
-5.  Right click and choose "Uninstall device".
-    You may see a tick box that allows you to uninstall the driver software as well, tick that (all the three Apple mobile device entries under USB devices will disappear);
-6.  Unplug the device and re-plug it in;
-7.  Go back to futurerestore and send the restore command again (just press the up arrow to get it back, then enter).
-    Error -8 is now fixed, but the process will fail again after the screen of your device has turned green;
-8.  Go back to device manager and repeat the driver uninstall process as described above (step 4 to 6);
-9.  Go back to futurerestore once again and repeat the restore process;
-10. The device will reboot and error -10 will also be solved;
-11. The restore will now proceed and succeed.
   
 ## Compiling
-Simple use  `bash autogen.sh && make` or use Xcode project. For installing use `make install`.
+Simple use  `bash autogen.sh && make`. For installing use `make install`.
   
 ### Some about [cURL](https://github.com/curl/curl)
   * Linux: Follow [this guide](https://dev.to/jake/using-libcurl3-and-libcurl4-on-ubuntu-1804-bionic-184g) to use tsschecker on Ubuntu 18.04 (Bionic) as it requires libcurl3 which cannot coexist with libcurl4 on this OS.
-  * macOS: open file [Makefile.am](https://github.com/s0uthwest/futurerestore/blob/master/futurerestore/Makefile.am) and update line with LDADD: `futurerestore_LDADD = $(AM_LDFLAGS) libjssy.a /usr/lib/libcurl.4.dylib`
+
 ---
 
 ## 0) What futurerestore can do
